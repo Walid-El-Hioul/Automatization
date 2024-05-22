@@ -15,11 +15,26 @@ if [ ! -d "$source_dir" ]; then
     exit 1
 fi
 
-# Check if destination directory exists, create if not
-mkdir -p "$destination_dir"
+# Check if destination directory exists
+if [ ! -d "$destination_dir" ]; then
+    echo "Error: Destination directory '$destination_dir' does not exist."
+    exit 1
+fi
 
-# Copy application data folders from source to destination
-echo "Copying application data folders from $source_dir to $destination_dir..."
-cp -r "$source_dir"/applications/* "$destination_dir"
+# Loop through each application
+for app_folder in "$destination_dir"/*; do
+    # Check if it's a directory
+    if [ -d "$app_folder" ]; then
+        app_name=$(basename "$app_folder")
+        if [ -d "$app_name" ]; then
+            # Copy application data to destination application folder
+            echo "Copying data of $app_name folder to destination application folder..."
+            cp -r "$source_dir"/"$app_folder" "$destination_dir"
+            echo "Data fetched for $app_name."
+        else
+            echo "Data for $app_name doesn't exists in "$destination_dir" directory."
+        fi
+    fi
+done
 
-echo "Data pulled successfully."
+echo "Data fetch completed."
