@@ -20,6 +20,6 @@ mkdir -p "$destination_dir"
 
 # Copy application data folders from source to destination
 echo "Copying application data folders from $source_dir to $destination_dir..."
-cp -r "$source_dir"/applications/* "$destination_dir"
+cp -r "$source_dir"/* "$destination_dir"
 
 echo "Data pulled successfully."
