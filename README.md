@@ -35,7 +35,7 @@ The repository includes two Bash scripts:
 1. Clone or download the repository to your Windows machine.
 2. Open PowerShell as an administrator.
 3. Navigate to the repository directory.
-4. Run the `Apps.ps1` script by executing `.\Apps.ps1`.
+4. Run the `run.ps1` script by executing `.\run.ps1`.
 5. Follow the prompts to install additional applications, if desired.
 6. The script will install the specified applications, tools, and dependencies.
 7. Check the `output.log` and `errors.log` files for any output or errors.
