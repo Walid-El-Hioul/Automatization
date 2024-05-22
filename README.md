@@ -26,16 +26,26 @@ The `Apps.ps1` script is the primary PowerShell script that performs the followi
 
 The repository includes two Bash scripts:
 
+<<<<<<< HEAD
 1. **push_data.sh**: This script copies application data folders from a source directory to a destination directory. It ensures that the destination directory exists and creates it if necessary.
 
 2. **fetch_data.sh**: This script copies application data from a source directory to the corresponding application folders in a destination directory. It checks if the application folders exist in the destination directory before copying the data.
+=======
+1. **pull_data.sh**: This script copies application data folders from a source directory (PC) to a destination directory (Storage). It ensures that the destination directory exists.
+
+2. **push_data.sh**: This script replace application data from a source directory (Storage) to the corresponding application folders in a destination directory (PC). It checks if the application folders exist in the destination directory before copying the data.
+>>>>>>> origin/test
 
 ## Usage
 
 1. Clone or download the repository to your Windows machine.
 2. Open PowerShell as an administrator.
 3. Navigate to the repository directory.
+<<<<<<< HEAD
 4. Run the `Apps.ps1` script by executing `.\Apps.ps1`.
+=======
+4. Run the `run.ps1` script by executing `.\run.ps1`.
+>>>>>>> origin/test
 5. Follow the prompts to install additional applications, if desired.
 6. The script will install the specified applications, tools, and dependencies.
 7. Check the `output.log` and `errors.log` files for any output or errors.
@@ -58,4 +68,8 @@ Feel free to contribute to this repository by submitting bug reports, feature re
 
 # License
 
+<<<<<<< HEAD
 This project is licensed under the [MIT License](LICENSE).
+=======
+This project is licensed under the [MIT License](LICENSE).
+>>>>>>> origin/test
