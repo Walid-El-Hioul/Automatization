@@ -33,83 +33,75 @@ if (-not (wsl -l -q | Select-String -Pattern "Ubuntu")) {
 
 # List of applications to install
 $applications = @(
-    "googlechrome"
+    # Browsers
+    "brave"
+
+    # Media Players
     "vlc"
+
+    # Development Tools
     "vscode"
-    "zoom"
-    "discord"
-    "notepadplusplus"
-    "adobereader"
-    "teamviewer"
-    "winscp"
-    "putty.install"
     "git.install"
-    "freedownloadmanager"
-    "github.install"
-    "googledrive"
-    "javaruntime"
-    "malwarebytes"
-    "microsoft.netfx"
-    "microsoft-office-deployment"
-    "onedrive"
-    "microsoftteams"
-    "mongodb.compass"
-    "msys2"
+    "nodejs-lts"
+    "python3"
     "mysql"
     "mysql.workbench"
-    "nodejs-lts"
-    "notion-enhancer"
-    "npcap"
-    "opendns-updater"
-    "openvpn"
-    "oracle-vm-virtualbox"
     "postman"
-    "poweriso"
+    "github"
+    "mongodb.compass"
+    "packettracer"
+
+    # Communication Tools
+    "zoom"
+    "discord"
+    "microsoftteams"
+
+    # Text Editors and IDEs
+    "notepadplusplus"
+
+    # PDF and Document Tools
+    "adobereader"
+
+    # Remote Access and File Transfer
+    "winscp"
+    "putty.install"
     "putty.portable"
-    "python3"
+
+    # Download Managers
+    "freedownloadmanager"
+
+    # Cloud Storage
+    "googledrive"
+    "onedrive"
+
+    # Security and Privacy Tools
+    "malwarebytes"
+    "openvpn"
+    "nextdns"
+
+    # Networking Tools
+    "wireshark"
+    "npcap"
+    "advanced-ip-scanner"
+
+    # System Utilities
+    "javaruntime"
+    "microsoft.netfx"
+    "oracle-vm-virtualbox"
     "revouninstaller"
     "speedtest"
-    "kb5000716"
-    "visualstudio2022buildtools"
-    "visualstudio2022community"
-    "windows11installassistant"
-    "windowsadkwindows10"
-    "wireshark"
     "wisefolderhider"
-    "vcredist2015"
-    "vcredist2017"
-    "java"
     "visualcpp-build-tools"
-    "windows-sdk"
-    # Add more applications as needed
-)
+    "cpu-z"
+    "7zip"
+    "easeus-todo-backup"
+    "docker-desktop"
 
-# List of dependencies to install
-$dependencies = @(
-    "scapy",           # Packet manipulation and network traffic analysis
-    "pyshark",         # Wrapper for TShark for packet capture and parsing
-    "dpkt",            # Fast, simple packet creation and parsing
-    "scikit-learn",    # Classical machine learning algorithms
-    "tensorflow",      # Deep learning framework (choose one: TensorFlow or PyTorch)
-    "keras",           # High-level neural networks API (if using TensorFlow)
-    "xgboost",         # Gradient boosting algorithms
-    "pandas",          # Data manipulation and analysis
-    "numpy",           # Numerical operations
-    "dask",            # Parallel computing and handling large datasets
-    "matplotlib",      # Plotting and visualization
-    "seaborn",         # Statistical data visualization
-    "plotly",          # Interactive visualizations
-    "notebook",        # Interactive coding and visualization
-    "tqdm",            # Progress bars
-    "configparser",    # Handling configuration files
-    "sqlalchemy",      # Database interactions
-    "requests",        # Making HTTP requests
-    "flask",           # Web interface development (choose one: Flask or Django)
-    "yara-python",     # Malware identification
-    "pyclamd"          # Virus scanning using ClamAV
-    # Add more dependencies as needed
+    # Office Suite
+    "microsoft-365"
+    "microsoft-office"
+    "microsoft-loop"
 )
-
 
 
 # Install applications using Chocolatey
@@ -121,15 +113,8 @@ foreach ($app in $applications) {
         Write-Output "$app is already installed."
     }
 }
-Write-Output "All applications installed successfully."
 
-# Install Python dependencies using pip
-foreach ($dep in $dependencies) {
-    Write-Output "Installing dependency: $dep"
-    pip install $dep
-}
-Write-Output "All dependencies installed successfully."
-
+# ************************** USER ****************************
 # New list for user-inputted apps
 $new_apps = @()
 
@@ -150,22 +135,12 @@ foreach ($napp in $new_apps) {
         Write-Output "$napp is already installed."
     }
 }
+# ********************************************************************
 
 # Upgrade all installed Chocolatey packages to the latest versions
 Write-Output "Upgrading all installed Chocolatey packages to the latest versions..."
 choco upgrade all -y
 
 Write-Output "All new applications installed successfully."
-
-# # Run additional Bash scripts
-# $bashScripts = @(
-    #     "push_data.sh"
-    #     # Add more scripts as needed
-    # )
-
-# foreach ($script in $bashScripts) {
-    #     Write-Output "Executing Bash script: $script"
-    #     wsl bash -c "bash $script"
-    # }
 
 Write-Output "All tasks completed successfully."

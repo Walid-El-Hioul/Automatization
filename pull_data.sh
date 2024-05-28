@@ -15,14 +15,6 @@ if [ ! -d "$source_dir" ]; then
     exit 1
 fi
 
-<<<<<<< HEAD
-# Check if destination directory exists, create if not
-mkdir -p "$destination_dir"
-
-# Copy application data folders from source to destination
-echo "Copying application data folders from $source_dir to $destination_dir..."
-cp -r "$source_dir"/* "$destination_dir"
-=======
 # Check if destination directory exists
 if [ -d "$destination_dir" ]; then
     # Copy application data folders from source to destination
